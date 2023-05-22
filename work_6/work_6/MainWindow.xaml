@@ -6,7 +6,18 @@
         xmlns:local="clr-namespace:work_6"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="#FFE8FC9A">
+        <Button x:Name="open_btn" Content="開啓檔案" HorizontalAlignment="Left" Height="25" Margin="20,10,0,0" VerticalAlignment="Top" Width="65" Click="open_btn_click"/>
+        <Button x:Name="save_btn" Content="存檔" HorizontalAlignment="Left" Height="25" Margin="99,10,0,0" VerticalAlignment="Top" Width="65" Click="save_btn_click"/>
+        <RichTextBox x:Name="text" HorizontalAlignment="Center" Height="384" Margin="0,40,0,0" VerticalAlignment="Top" Width="762">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <ComboBox x:Name="cmbFontFamily" HorizontalAlignment="Left" Height="21" Margin="181,14,0,0" VerticalAlignment="Top" Width="159" SelectionChanged="cmbFontFamily_sc"/>
+        <ComboBox x:Name="cmbFontSize" HorizontalAlignment="Center" Height="21" Margin="0,14,0,0" VerticalAlignment="Top" Width="80" SelectionChanged="cmbFontSize_sc"/>
+
     </Grid>
 </Window>
