@@ -112,5 +112,42 @@ namespace work_6
                 // 如果文字沒有底線，則增加底線
                 text.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, TextDecorations.Underline);
         }
+
+        SolidColorBrush DefaultColor = new SolidColorBrush(Color.FromArgb(100, 221, 221, 221));
+        private void text_sc(object sender, RoutedEventArgs e)
+        {
+            // 取得你目前選取的文字，取得文字的字體粗細
+            object temp = text.Selection.GetPropertyValue(Inline.FontWeightProperty);
+            if ((temp != DependencyProperty.UnsetValue) && (temp.Equals(FontWeights.Bold)))
+                bold_btn.Background = Brushes.Gray; // 如果是粗體，按鍵底色變灰色
+            else
+                bold_btn.Background = DefaultColor; // 如果非粗體，按鍵底色變成預設顏色
+
+            // 取得你目前選取的文字，取得文字的字體樣式（斜體或非斜體）
+            temp = text.Selection.GetPropertyValue(Inline.FontStyleProperty);
+            if ((temp != DependencyProperty.UnsetValue) && (temp.Equals(FontStyles.Italic)))
+                italic_btn.Background = Brushes.Gray; // 如果是斜體，按鍵底色變灰色
+            else
+                italic_btn.Background = DefaultColor; // 如果非斜體，按鍵底色變成預設顏色
+
+            // 取得你目前選取的文字，取得文字的字體樣式（底線或無底線）
+            temp = text.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
+            if ((temp != DependencyProperty.UnsetValue) && (temp.Equals(TextDecorations.Underline)))
+                underline_btn.Background = Brushes.Gray; // 如果有底線，按鍵底色變灰色
+            else
+                underline_btn.Background = DefaultColor; // 如果無底線，按鍵底色變成預設顏色
+
+            // 取得你目前選取的文字，取得文字的字型
+            temp = text.Selection.GetPropertyValue(Inline.FontFamilyProperty);
+            cmbFontFamily.SelectedItem = temp; // 依據選取文字的字型，字型下拉選單設定成該項字型
+                                               // 取得你目前選取的文字，取得文字的字體大小
+            temp = text.Selection.GetPropertyValue(Inline.FontSizeProperty);
+            cmbFontSize.SelectedItem = temp; // 依據選取文字的字體大小，設定字體大小下拉選單的數字
+        }
+
+        private void text_lf(object sender, RoutedEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }
