@@ -73,5 +73,44 @@ namespace work_6
             // 將rtbText豐富文字框所選的項目，套用所設定的字體大小
             text.Selection.ApplyPropertyValue(Inline.FontSizeProperty, cmbFontSize.SelectedItem);
         }
+
+        private void bold_btn_click(object sender, RoutedEventArgs e)
+        {
+            // 取得你目前選取的文字，取得文字的字體粗細
+            object temp = text.Selection.GetPropertyValue(Inline.FontWeightProperty);
+
+            if ((temp != DependencyProperty.UnsetValue) && (temp.Equals(FontWeights.Bold)))
+                // 判斷：文字要有設定格式、設定為粗體，改變文字成為原來的粗細程度
+                text.Selection.ApplyPropertyValue(FontWeightProperty, FontWeights.Normal);
+            else
+                // 如果文字不是粗體，則改為粗體
+                text.Selection.ApplyPropertyValue(FontWeightProperty, FontWeights.Bold);
+        }
+
+        private void italic_btn_click(object sender, RoutedEventArgs e)
+        {
+            // 取得你目前選取的文字，取得文字的字體樣式（斜體或非斜體）
+            object temp = text.Selection.GetPropertyValue(Inline.FontStyleProperty);
+
+            if ((temp != DependencyProperty.UnsetValue) && (temp.Equals(FontStyles.Italic)))
+                // 判斷：文字要有設定格式、設定為斜體，改變文字成為原來的正體
+                text.Selection.ApplyPropertyValue(FontStyleProperty, FontStyles.Normal);
+            else
+                // 如果文字為正體，則改為斜體
+                text.Selection.ApplyPropertyValue(FontStyleProperty, FontStyles.Italic);
+        }
+
+        private void underline_btn_click(object sender, RoutedEventArgs e)
+        {
+            // 取得你目前選取的文字，取得文字的字體樣式（字體裝飾）
+            object temp = text.Selection.GetPropertyValue(Inline.TextDecorationsProperty);
+
+            if ((temp != DependencyProperty.UnsetValue) && (temp.Equals(TextDecorations.Underline)))
+                // 判斷：文字要有設定格式、設定為底線，將文字移除底線
+                text.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, null);
+            else
+                // 如果文字沒有底線，則增加底線
+                text.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, TextDecorations.Underline);
+        }
     }
 }

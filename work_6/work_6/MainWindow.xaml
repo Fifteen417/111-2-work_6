@@ -18,6 +18,9 @@
         </RichTextBox>
         <ComboBox x:Name="cmbFontFamily" HorizontalAlignment="Left" Height="21" Margin="181,14,0,0" VerticalAlignment="Top" Width="159" SelectionChanged="cmbFontFamily_sc"/>
         <ComboBox x:Name="cmbFontSize" HorizontalAlignment="Center" Height="21" Margin="0,14,0,0" VerticalAlignment="Top" Width="80" SelectionChanged="cmbFontSize_sc"/>
+        <Button x:Name="bold_btn" Content="B" HorizontalAlignment="Left" Height="25" Margin="462,10,0,0" VerticalAlignment="Top" Width="28" Click="bold_btn_click" FontWeight="Bold" FontSize="16"/>
+        <Button x:Name="italic_btn" Content="I" HorizontalAlignment="Left" Height="25" Margin="503,10,0,0" VerticalAlignment="Top" Width="28" Click="italic_btn_click" FontSize="16" FontStyle="Italic" FontWeight="Bold"/>
+        <Button x:Name="underline_btn" Content="U" HorizontalAlignment="Left" Height="25" Margin="544,10,0,0" VerticalAlignment="Top" Width="28" Click="underline_btn_click" FontWeight="Bold" FontSize="16"/>
 
     </Grid>
 </Window>
